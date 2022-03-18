@@ -18,10 +18,6 @@ defmodule MetroCdmxApiWeb.Router do
     # plug :authenticate
   # end
 
-  scope "/", MetroCdmxApiWeb do
-    pipe_through :api
-    get "/metrocdmx", MetroController, :show
-  end
 
   # scope "/", MetroCdmxApiWeb do
   #   pipe_through :browser
@@ -29,9 +25,10 @@ defmodule MetroCdmxApiWeb.Router do
   # end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MetroCdmxApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/", MetroCdmxApiWeb do
+    pipe_through :api
+    get "/metrocdmx/route", MetroController, :show
+  end
 
   # Enables LiveDashboard only for development
   #

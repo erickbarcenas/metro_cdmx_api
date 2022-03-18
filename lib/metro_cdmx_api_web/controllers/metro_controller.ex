@@ -1,15 +1,14 @@
 defmodule MetroCdmxApiWeb.MetroController do
   use MetroCdmxApiWeb, :controller
-  # alias MetroCdmxApi.Route
+
+  alias MetroCdmxApi.Metro
+  alias MetroCdmxApi.Metro.Route
 
   def show(conn, params) do
-    #changeset = Route.route_changeset(%Route{}, params)
 
-    #if 1 do
-      conn
-      |> put_status(200)
-      |> json(%{data: params})
-    #end
-
+    origin = params["origin"]
+    dest = params["dest"]
+    Metro.get_route(origin, dest)
+    render(conn, "show.json", %{origin: origin, dest: dest})
   end
 end

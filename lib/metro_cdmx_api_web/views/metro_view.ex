@@ -4,7 +4,7 @@ defmodule MetroCdmxApiWeb.MetroView do
     """
   use MetroCdmxApiWeb, :view
 
-  def render("route.json", %{origin: origin, dest: dest}) do
+  def render("show.json", %{origin: origin, dest: dest}) do
     %{
       origin: origin,
       dest: dest,
