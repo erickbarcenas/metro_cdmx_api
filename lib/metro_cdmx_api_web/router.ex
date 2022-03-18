@@ -14,11 +14,19 @@ defmodule MetroCdmxApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", MetroCdmxApiWeb do
-    pipe_through :browser
+  # pipeline :auth do
+    # plug :authenticate
+  # end
 
-    get "/", PageController, :index
+  scope "/", MetroCdmxApiWeb do
+    pipe_through :api
+    get "/metrocdmx", MetroController, :show
   end
+
+  # scope "/", MetroCdmxApiWeb do
+  #   pipe_through :browser
+  #   get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", MetroCdmxApiWeb do
