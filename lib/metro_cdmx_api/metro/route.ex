@@ -10,10 +10,11 @@ defmodule MetroCdmxApi.Metro.Route do
     field :dest, :string
   end
 
-  def route_changeset(route, _params) do
-    IO.inspect(1)
-    # route
-    #  |> cast(params, [:origin, :dest])
-    #  |> get_route
+  #defstruct [:origin, :dest]
+
+  def routes_changeset(route, params) do
+    route
+      |> cast(params, [:origin, :dest])
+      |> validate_required([:origin, :dest])
   end
 end

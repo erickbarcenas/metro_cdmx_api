@@ -4,11 +4,12 @@ defmodule MetroCdmxApiWeb.MetroView do
     """
   use MetroCdmxApiWeb, :view
 
-  def render("show.json", %{origin: origin, dest: dest}) do
+  def render("show.json", %{origin: origin, dest: dest, itinerary: itinerary}) do
     %{
+      status: 200,
       origin: origin,
       dest: dest,
-      itinerary: []
+      itinerary: itinerary
     }
   end
 end
